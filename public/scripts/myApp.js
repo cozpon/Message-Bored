@@ -9,22 +9,22 @@ var app = angular.module('myApp')
   MoviesProvider.setUrl('http://localhost:3000/api/movies');
 
   // define routes
-  // $routeProvider
-  // .when('/', {
-  //   templateUrl: '/views/home.html',
-  //   controller: 'HomeController'
-  // })
-  // .when('/users', {
-  //   templateUrl: '/views/users.html',
-  //   controller: 'UsersController'
-  // })
-  // .when('/latest', {
-  //   templateUrl: '/views/latest.html',
-  //   controller: 'MessagesController'
-  // })
-  // .otherwise({ //this is the 404 // error page
-  //   template: '<h1><center> kablamo! </center></h1>'
-  // });
+  $routeProvider
+  .when('/', {
+    templateUrl: '/views/home.html',
+    controller: 'HomeController'
+  })
+  .when('/users', {
+    templateUrl: '/views/users.html',
+    controller: 'UsersController'
+  })
+  .when('/latest', {
+    templateUrl: '/views/latest.html',
+    controller: 'MessagesController'
+  })
+  .otherwise({ //this is the 404 // error page
+    template: '<h1><center> kablamo! </center></h1>'
+  });
 
 
   //this gets rid of #! in URL

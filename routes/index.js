@@ -1,6 +1,7 @@
 //jshint esversion:6
 const express = require('express');
 const router = express.Router();
+
 const users = require('./users');
 const messages = require('./messages');
 const topics = require('./topics');
