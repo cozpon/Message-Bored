@@ -2,11 +2,15 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models');
-
 const Users = db.users;
+const app = express();
+const path = require('path');
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 router.route('/')
   .get((req, res) => {
+    console.log(Users);
     return Users.findAll()
     .then(users => {
       return res.json(users);

@@ -14,7 +14,6 @@ module.exports = function(sequelize, DataType) {
       },
       onDelete: 'NO ACTION'
     });
-
     users.hasMany(models.messages, {
       foreignKey: {
         name: 'author_id',

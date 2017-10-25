@@ -2,10 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models');
-
 const Messages = db.messages;
-
-
 
 router.route('/')
 .get((req, res) => {
@@ -21,7 +18,6 @@ router.route('/')
     return res.json(newTopic);
   });
 });
-
 
 router.route('/:id')
 .put((req, res) => {

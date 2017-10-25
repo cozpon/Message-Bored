@@ -1,0 +1,18 @@
+<div>
+  <input type="text" ng-model="userSearch" placeholder="Search">
+</div>
+
+<div ng-app="myApp">
+
+<ul>
+ <ul ng-repeat="user in users | filter:userSearch | orderBy: 'id'">
+   <h4>{{ user.id + ". " + user.name }}</h4>
+ </ul>
+</ul>
+
+<form>
+ <input type="text" ng-model="newUser.name" placeholder="Name">
+ <button ng-click="addUser()">Create Username</button>
+</form>
+
+</div>

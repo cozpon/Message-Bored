@@ -3,17 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
+    <base href="/">
 </head>
-<body>
+<body ng-app="myApp">
 
-
-
-
+  <div>
+    <a ng-href="/">Home</a>
+    <a ng-href="/users">Users</a>
+  </div>
+  <ng-view> loading... </ng-view>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js" type="text/javascript"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.js" type="text/javascript"></script>
-<script src="/js/myApp.js" type="text/javascript"></script>
+<script src="/scripts/myApp.js" type="text/javascript"></script>
+<script src="/scripts/controllers/topics.controller.js" type="text/javascript"></script>
+<script src="/scripts/controllers/users.controller.js" type="text/javascript"></script>
+<!-- <script src="/scripts/controllers/messages.controller.js" type="text/javascript"></script>
+ -->
+ <script src="/scripts/services.js" type="text/javascript"></script>
+
 
 </body>
 </html>
