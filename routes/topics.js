@@ -10,6 +10,7 @@ router.route('/')
   res.json('post');
 });
 
+
 router.route('/:id')
 .put((req, res) => {
   res.json('put');
