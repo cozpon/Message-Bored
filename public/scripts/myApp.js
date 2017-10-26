@@ -26,6 +26,7 @@ var app = angular.module('myApp')
   //   templateUrl: '/views/latest.html',
   //   controller: 'MessagesController'
   // })
+
   .otherwise({ //this is the 404 // error page
     template: '<h1><center> kablamo! </center></h1>'
   });

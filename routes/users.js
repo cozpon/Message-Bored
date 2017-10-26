@@ -20,7 +20,6 @@ router.route('/')
       // add password here if wanted
     })
     .then(user => {
-      console.log(user);
       return res.json(user);
     });
   });
