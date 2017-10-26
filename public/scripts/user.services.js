@@ -21,7 +21,7 @@ angular.module('myApp')
   this.addUser = function(givenUser) {
     if (!givenUser) { return; }
     var user = {
-      name: givenUser.name,
+      username: givenUser.username,
       password: givenUser.password
     };
     // create method on backend
@@ -31,6 +31,18 @@ angular.module('myApp')
       return response.data;
     });
   };
+
+  this.login = function(data) {
+    var user = {
+      username: data.username, password: data.password
+    };
+    return $http.post('/api/login', user)
+    .then(function(response) {
+      return response.data;
+    });
+
+  };
+
 
   this.updateUser = function(id, user) {
     var updateUrl = url + '/' + id;

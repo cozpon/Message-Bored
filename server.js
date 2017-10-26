@@ -37,6 +37,8 @@ app.use(passport.session());
 
 passport.serializeUser((user,done) => {
   console.log('serializing');
+  console.log(user, "USER");
+  console.log(done, "DONE");
   return done(null, {
     id: user.id,
     username: user.username
@@ -77,12 +79,12 @@ passport.use(new LocalStrategy(function (username, password, done) {
 }));
 
 //routes
-app.post('/login', passport.authenticate('local', {
+app.post('/api/login', passport.authenticate('local', {
   successRedirect: '/',
   failureRedirect: '/login'
 }));
 
-app.get('/logout', (req, res) => {
+app.get('/api/logout', (req, res) => {
   req.logout();
 });
 
@@ -91,14 +93,17 @@ app.post('/api/register', (req,res) => {
   bcrypt.genSalt(saltRounds, function (err, salt) {
     bcrypt.hash(req.body.password, salt, function (err, hash) {
       db.users.create({
-        name: req.body.name,
+        username: req.body.username,
         password: hash
       })
       .then((user) => {
         console.log(user, "HEY");
         res.json(user);
       })
-      .catch((err) => {return res.send('Stupid username');});
+      .catch((err) => {
+        console.log("error", err);
+        return res.send('Stupid username');
+      });
     });
   });
 });
@@ -109,8 +114,6 @@ function isAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {next();}
   else {res.redirect('/login.html');}
 }
-
-
 
 
 app.listen(port, () => {

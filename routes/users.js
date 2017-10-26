@@ -5,8 +5,6 @@ const db = require('../models');
 const Users = db.users;
 
 
-
-
 router.route('/')
   .get((req, res) => {
     return Users.findAll()
@@ -14,15 +12,7 @@ router.route('/')
       return res.json(users);
     });
   });
-  // .post((req, res) => {
-  //   Users.create({
-  //     name: req.body.name,
-  //     password: req.body.password
-  //   })
-  //   .then(user => {
-  //     return res.json(user);
-  //   });
-  // });
+
 
 router.route('/:id')
   .get((req, res) => {

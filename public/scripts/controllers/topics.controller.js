@@ -6,7 +6,7 @@ angular.module('myApp')
   $scope.addTopic = function(e) {
     TopicService.addTopic($scope.newTopic)
     .then(function(){
-      $scope.newTopic.name = '';
+      $scope.newTopic.username = '';
     });
   };
 

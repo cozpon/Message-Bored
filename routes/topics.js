@@ -12,9 +12,9 @@ router.route('/')
   });
 })
 .post((req, res) => {
-  let name = req.body.name;
+  let username = req.body.username;
   return Topics.create({
-    name : name
+    username : username
 
   })
   .then(newTopic => {
@@ -27,7 +27,7 @@ router.route('/:id')
   let data = req.body;
   let id = req.params.id;
   return Topics.update({
-    name : data.name
+    username : data.username
   },
   {
   where : { id : id }})
