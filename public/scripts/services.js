@@ -21,14 +21,13 @@ angular.module('myApp')
     var user = {
       name: givenUser.name,
     };
-    self.users.push(user);
-
     // create method on backend
-    $http.post(url, user)
+    return $http.post(url, user)
     .then(function(response) {
       console.log('user made on backend');
+      self.users.push(response.data);
+      return response.data;
     });
-    return self.users;
   };
 
   this.updateUser = function(id, user) {
@@ -36,6 +35,7 @@ angular.module('myApp')
     $http.put(updateUrl, user);
   };
 
+  // GET single user
   this.singleUser = function(id) {
     var fullUrl = url + '/' + id;
     return $http.get(fullUrl)

@@ -7,9 +7,5 @@ angular.module('myApp')
   UserService.singleUser($routeParams.id)
   .then(function(data) {
     $scope.singleUser = data;
-    console.log($scope.singleUser, "Return");
   });
-
-  $scope.user = {};
-
 }]);

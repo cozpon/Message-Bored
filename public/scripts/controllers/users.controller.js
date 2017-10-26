@@ -6,8 +6,10 @@ angular.module('myApp')
   $scope.getUsers = UserService.getUsers;
 
   $scope.addUser = function(e) {
-    console.log('controller');
-    UserService.addUser($scope.newUser);
-    $scope.newUser.name = '';
+    UserService.addUser($scope.newUser)
+    .then(function(){
+      $scope.newUser.name = '';
+    });
+
   };
 }]);

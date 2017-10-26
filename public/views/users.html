@@ -8,7 +8,8 @@
 
   <ul>
     <ul ng-repeat="user in getUsers() | filter:userSearch | orderBy:'id'">
-      <a id="{{ user.name }}" ng-href='/users/{{ user.id }}'>{{ user.name }}</a>
+      <a id="{{ user.name }}" ng-href='/users/{{ user.id }}'>{{user.id}}
+      {{ user.name }}</a>
     </ul>
   </ul>
 
