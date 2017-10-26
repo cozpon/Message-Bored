@@ -10,13 +10,17 @@ var app = angular.module('myApp')
 
   // define routes
   $routeProvider
-  // .when('/', {
-  //   templateUrl: '/views/home.html',
-  //   controller: 'HomeController'
-  // })
+  .when('/', {
+    templateUrl: '/views/home.html',
+    controller: 'HomeController'
+  })
   .when('/users', {
     templateUrl: '/views/users.html',
     controller: 'UsersController'
+  })
+  .when('/users/:id', {
+    templateUrl: '/views/user.html',
+    controller: 'UserController'
   })
   // .when('/latest', {
   //   templateUrl: '/views/latest.html',
@@ -30,4 +34,7 @@ var app = angular.module('myApp')
   //this gets rid of #! in URL
   $locationProvider.html5Mode(true);
 
-}]);
+}])
+  .run(['$rootScope', function($rootScope) {
+    $rootScope.test = new Date();
+  }]);

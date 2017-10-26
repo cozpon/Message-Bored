@@ -10,7 +10,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 router.route('/')
   .get((req, res) => {
-    console.log(Users);
+    console.log('Users');
     return Users.findAll()
     .then(users => {
       return res.json(users);
@@ -28,10 +28,11 @@ router.route('/')
 
 router.route('/:id')
   .get((req, res) => {
+    console.log("front end");
     let userId = req.params.id;
     return Users.findById(userId)
     .then(user => {
-      return res.json(user);
+    return res.json(user);
     });
   });
 
