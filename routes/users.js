@@ -3,8 +3,8 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models');
 const Users = db.users;
-const app = express();
-const path = require('path');
+
+
 
 
 router.route('/')
@@ -13,16 +13,16 @@ router.route('/')
     .then(users => {
       return res.json(users);
     });
-  })
-  .post((req, res) => {
-    Users.create({
-      name: req.body.name
-      // add password here if wanted
-    })
-    .then(user => {
-      return res.json(user);
-    });
   });
+  // .post((req, res) => {
+  //   Users.create({
+  //     name: req.body.name,
+  //     password: req.body.password
+  //   })
+  //   .then(user => {
+  //     return res.json(user);
+  //   });
+  // });
 
 router.route('/:id')
   .get((req, res) => {

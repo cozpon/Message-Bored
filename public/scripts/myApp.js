@@ -7,12 +7,18 @@ var app = angular.module('myApp')
  function($routeProvider, $locationProvider) {
   // configure users
 
-
   // define routes
   $routeProvider
   .when('/', {
     templateUrl: '/views/home.html',
     controller: 'HomeController'
+  })
+  .when('/login', {
+    templateUrl: '/views/registration/login.html'
+  })
+  .when('/register', {
+    templateUrl: '/views/registration/register.html',
+    controller: 'UsersController'
   })
   .when('/users', {
     templateUrl: '/views/users.html',
@@ -21,6 +27,10 @@ var app = angular.module('myApp')
   .when('/users/:id', {
     templateUrl: '/views/user.html',
     controller: 'UserController'
+  })
+  .when('/topics/:id', {
+    templateUrl: '/views/topicsId.html',
+    controller: 'TopicsController'
   })
   // .when('/latest', {
   //   templateUrl: '/views/latest.html',

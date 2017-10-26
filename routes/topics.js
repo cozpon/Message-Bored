@@ -13,7 +13,10 @@ router.route('/')
 })
 .post((req, res) => {
   let name = req.body.name;
-  return Topics.create({ name : name })
+  return Topics.create({
+    name : name
+
+  })
   .then(newTopic => {
     return res.json(newTopic);
   });

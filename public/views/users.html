@@ -3,18 +3,15 @@
 <div>
   <input type="text" ng-model="userSearch" placeholder="Search">
 </div>
-
+{{user.name}}
 <div ng-app="myApp">
-
+{{user}}
   <ul>
     <ul ng-repeat="user in getUsers() | filter:userSearch | orderBy:'id'">
       <a id="{{ user.name }}" ng-href='/users/{{ user.id }}'>{{ user.name }}</a>
     </ul>
   </ul>
 
-  <form>
-    <input type="text" ng-model="newUser.name" placeholder="Name">
-    <button ng-click="addUser()">Create Username</button>
-  </form>
+
 
 </div>
