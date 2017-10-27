@@ -27,7 +27,7 @@ var app = angular.module('myApp')
   })
   .when('/users/:id', {
     templateUrl: '/views/user.html',
-    controller: 'UserController'
+    controller: 'userController'
   })
   .when('/topics', {
     templateUrl: '/views/topics.html',
@@ -35,7 +35,7 @@ var app = angular.module('myApp')
   })
    .when('/topics/:id', {
     templateUrl: '/views/topic.html',
-    controller: 'TopicController'
+    controller: 'topicController'
   })
   // .when('/latest', {
   //   templateUrl: '/views/latest.html',

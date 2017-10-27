@@ -3,10 +3,15 @@
 <ul ng-repeat="topics in getTopics()">
       <a id="{{ topics.name }}" ng-href='/topics/{{ topics.id }}'>
       {{ topics.name }}</a><br>
-      101 Messages
+
+
+      <div ng-repeat="user in getUsers()">
+      Author: {{ user.username }}
+ </div>
 </ul>
 
+
 <form>
-  <input type="text" ng-model="newTopic.name" placeholder="Topic Name"><br>
+  <input type="text" ng-model="newTopic.name" placeholder="Topic Name">
   <button ng-click="addTopic()">Create Topic</button>
 </form>

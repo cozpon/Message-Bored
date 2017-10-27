@@ -13,8 +13,8 @@ angular.module('myApp')
 
 // read methods
   this.getTopics = function() {
-    console.log(self.topics);
-    return self.topics; };
+    return self.topics;
+  };
 
 // GET single user
   this.singleTopic = function(id) {
@@ -35,7 +35,6 @@ angular.module('myApp')
     return $http.post(url, topic)
     .then(function(response) {
       self.topics.push(response.data);
-      console.log(response.data);
       return response.data;
     });
   };

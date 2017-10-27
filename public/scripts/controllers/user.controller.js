@@ -1,6 +1,6 @@
 // USER SINGULAR
 angular.module('myApp')
-.controller('UserController', ['$scope', '$routeParams', 'UserService',
+.controller('userController', ['$scope', '$routeParams', 'UserService',
   function($scope, $routeParams, UserService) {
 
   UserService.singleUser($routeParams.id)

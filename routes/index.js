@@ -13,10 +13,8 @@ router.use('/users', users);
 router.use('/messages', messages);
 router.use('/topics', topics);
 
-
 router.post('/login', passport.authenticate('local'), function(req, res) {
   res.json(req.user);
-  console.log("database saying LOGIN");
 });
 
 router.get('/logout', (req, res) => {

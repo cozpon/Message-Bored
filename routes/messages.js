@@ -5,7 +5,6 @@ const db = require('../models');
 
 const Messages = db.messages;
 
-
 router.route('/')
 .post((req, res) => {
   Messages.create({
@@ -27,7 +26,6 @@ router.route('/latest')
     return res.json(latest);
   });
 });
-
 
 router.route('/by-topic/:topic_id')
 .get((req, res) => {

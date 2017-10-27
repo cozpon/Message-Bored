@@ -34,20 +34,14 @@ router.route('/:id')
 .put(isAuthenticated, (req, res) => {
   let data = req.body;
   let id = req.params.id;
-  return Topics.update({
-    username : data.username
-  },
-  {
-  where : { id : id }})
+  return Topics.update({ username : data.username },
+  { where : { id : id }})
   .then(topic => {
     return res.json(topic);
   });
 });
 
-
 module.exports = router;
-
-
 
 function isAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {next();}

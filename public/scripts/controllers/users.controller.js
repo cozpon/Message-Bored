@@ -10,9 +10,10 @@ angular.module('myApp')
   $scope.addUser = function(e) {
     UserService.addUser($scope.newUser)
     .then(function(){
-      $scope.newUser.username = '';
-      $scope.newUser.password = '';
+      $location.url('/users/');
     });
+    $scope.newUser.username = '';
+    $scope.newUser.password = '';
   };
 
   $scope.login = function(e) {
@@ -27,7 +28,6 @@ angular.module('myApp')
   $scope.logout = function(e){
     UserService.logout()
     .then(function (){
-      console.log("here");
     $location.url('/users');
     });
   };

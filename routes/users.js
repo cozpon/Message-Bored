@@ -4,7 +4,6 @@ const router = express.Router();
 const db = require('../models');
 const Users = db.users;
 
-
 router.route('/')
   .get((req, res) => {
     return Users.findAll()
@@ -12,7 +11,6 @@ router.route('/')
       return res.json(users);
     });
   });
-
 
 router.route('/:id')
   .get((req, res) => {

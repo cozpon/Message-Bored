@@ -15,7 +15,6 @@ angular.module('myApp')
 
   // read methods
   this.getUsers = function() {
-    console.log(self.users);
     return self.users; };
 
   // create method on frontend
@@ -43,7 +42,6 @@ angular.module('myApp')
   };
 
   this.logout = function() {
-    console.log('clicked');
     return $http.get('/api/logout')
     .then(function(response) {
       return response.data;
