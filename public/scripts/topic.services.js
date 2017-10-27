@@ -18,11 +18,9 @@ angular.module('myApp')
 
 // GET single user
   this.singleTopic = function(id) {
-    console.log(id);
     var fullUrl = url + '/' + id;
     return $http.get(fullUrl)
     .then(function(res){
-      console.log(res);
       return res.data;
     });
   };
