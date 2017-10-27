@@ -17,7 +17,6 @@ router.route('/')
 });
 
 
-
 router.route('/latest')
 .get((req, res) => {
   return Messages.findAll({

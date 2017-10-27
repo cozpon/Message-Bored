@@ -24,7 +24,14 @@ router.route('/')
 });
 
 router.route('/:id')
-.put((req, res) => {
+.get((req, res) => {
+  let topics = req.params.id;
+  return Topics.findById(topics)
+  .then(topic => {
+    return res.json(topic);
+  });
+})
+.put(isAuthenticated, (req, res) => {
   let data = req.body;
   let id = req.params.id;
   return Topics.update({
@@ -33,9 +40,6 @@ router.route('/:id')
   {
   where : { id : id }})
   .then(topic => {
-    let locals = {
-      topic : topic
-    };
     return res.json(topic);
   });
 });

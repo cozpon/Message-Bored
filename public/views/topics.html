@@ -1,6 +1,9 @@
 <h1> Create New Topic </h1>
+
 <ul ng-repeat="topics in getTopics()">
-      <a id="{{ topics.name }}" ng-href='/topics/{{ topics.id }}'>{{ topics.name }}</a>
+      <a id="{{ topics.name }}" ng-href='/topics/{{ topics.id }}'>
+      {{ topics.name }}</a><br>
+      101 Messages
 </ul>
 
 <form>

@@ -33,6 +33,10 @@ var app = angular.module('myApp')
     templateUrl: '/views/topics.html',
     controller: 'TopicsController'
   })
+   .when('/topics/:id', {
+    templateUrl: '/views/topic.html',
+    controller: 'TopicController'
+  })
   // .when('/latest', {
   //   templateUrl: '/views/latest.html',
   //   controller: 'MessagesController'
