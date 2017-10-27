@@ -2,7 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models');
-const Messages = db.messages;
+const Topics = db.topics;
 
 router.route('/')
 .get((req, res) => {
@@ -11,11 +11,12 @@ router.route('/')
     return res.json(topics);
   });
 })
-.post((req, res) => {
-  let username = req.body.username;
+.post(isAuthenticated, (req, res) => {
+  let name = req.body.name;
+  let id = req.user.id;
   return Topics.create({
-    username : username
-
+    name : name,
+    created_by : id
   })
   .then(newTopic => {
     return res.json(newTopic);
@@ -39,4 +40,12 @@ router.route('/:id')
   });
 });
 
+
 module.exports = router;
+
+
+
+function isAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {next();}
+  else {console.log("failed authentication");}
+}

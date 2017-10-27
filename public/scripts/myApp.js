@@ -17,6 +17,10 @@ var app = angular.module('myApp')
     templateUrl: '/views/registration/login.html',
     controller: 'UsersController'
   })
+  .when('/logout', {
+    templateUrl: '/views/registration/logout.html',
+    controller: 'UsersController'
+  })
   .when('/register', {
     templateUrl: '/views/registration/register.html',
     controller: 'UsersController'
@@ -29,8 +33,8 @@ var app = angular.module('myApp')
     templateUrl: '/views/user.html',
     controller: 'UserController'
   })
-  .when('/topics/:id', {
-    templateUrl: '/views/topicsId.html',
+  .when('/topics', {
+    templateUrl: '/views/topics.html',
     controller: 'TopicsController'
   })
   // .when('/latest', {

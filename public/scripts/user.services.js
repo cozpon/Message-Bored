@@ -10,7 +10,6 @@ angular.module('myApp')
   //initialization
   $http.get(usersUrl)
   .then(function(response) {
-  console.log(response.data, "HEY");
     self.users = response.data;
   });
 
@@ -32,16 +31,22 @@ angular.module('myApp')
     });
   };
 
-  this.login = function(data) {
-    var user = {
-      username: data.username, password: data.password
-    };
-    return $http.post('/api/login', user)
-    .then(function(response) {
-      return response.data;
-    });
 
+  this.login = function(data) {
+    var user = { username: data.username, password: data.password };
+    return $http.post('/api/login', user)
+    .then(function(user) {
+      return user.data;
+    });
   };
+
+  this.logout = function() {
+    $http.get('/api/logout')
+    .then(function(response) {
+      return response;
+    });
+  };
+
 
 
   this.updateUser = function(id, user) {

@@ -1,7 +1,8 @@
 //USERS PLURAL
 
 angular.module('myApp')
-.controller('UsersController', ['$scope', 'UserService', function($scope, UserService) {
+.controller('UsersController', ['$scope', '$location', 'UserService',
+  function($scope, $location, UserService) {
 
 
   $scope.getUsers = UserService.getUsers;
@@ -15,9 +16,17 @@ angular.module('myApp')
   };
 
   $scope.login = function(e) {
-    UserService.login($scope.loginUser);
-      $scope.loginUser.username = '';
-      $scope.loginUser.password = '';
+    UserService.login($scope.loginUser)
+    .then(function(user) {
+      $location.url('/users/' + user.id);
+     });
+    $scope.loginUser.username = '';
+    $scope.loginUser.password = '';
+  };
+
+  $scope.logout = function(e){
+    UserService.logout();
+    $location.url('/');
   };
 
 }]);
