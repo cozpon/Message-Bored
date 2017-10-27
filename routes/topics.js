@@ -3,10 +3,13 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models');
 const Topics = db.topics;
+const Users = db.users;
 
 router.route('/')
 .get((req, res) => {
-  return Topics.findAll()
+  return Topics.findAll({
+    include:[{ model: Users }]
+  })
   .then(topics => {
     return res.json(topics);
   });
@@ -19,7 +22,10 @@ router.route('/')
     created_by : id
   })
   .then(newTopic => {
-    return res.json(newTopic);
+    return newTopic.reload({include : [{ model: Users }]});
+  })
+  .then(topic => {
+    return res.json(topic);
   });
 });
 

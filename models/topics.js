@@ -1,16 +1,14 @@
 //jshint esversion:6
 module.exports = function (sequelize, DataTypes) {
+
   const topics = sequelize.define('topics', {
-    name : { type: DataTypes.STRING, allowNull: false, unique: true },
-    }, {
-    tableName : 'topics'
+    name : { type: DataTypes.STRING, allowNull: false, unique: true }
   });
 
   topics.associate = function(models) {
-    topics.hasMany(models.messages, {
+    topics.belongsTo(models.users, {
       foreignKey: {
-        name: 'topic_id',
-        as: 'messages',
+        name: 'created_by',
         allowNull: false
       },
       onDelete: 'NO ACTION'

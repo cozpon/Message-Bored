@@ -3,12 +3,9 @@
 <ul ng-repeat="topics in getTopics()">
       <a id="{{ topics.name }}" ng-href='/topics/{{ topics.id }}'>
       {{ topics.name }}</a><br>
-
-
-      <div ng-repeat="user in getUsers()">
-      Author: {{ user.username }}
- </div>
+      Posted by: {{ topics.user.username }}
 </ul>
+
 
 
 <form>

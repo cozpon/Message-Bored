@@ -13,6 +13,7 @@ angular.module('myApp')
 
 // read methods
   this.getTopics = function() {
+    console.log(self.topics);
     return self.topics;
   };
 
