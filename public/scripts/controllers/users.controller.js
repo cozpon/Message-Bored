@@ -25,8 +25,11 @@ angular.module('myApp')
   };
 
   $scope.logout = function(e){
-    UserService.logout();
-    $location.url('/');
+    UserService.logout()
+    .then(function (){
+      console.log("here");
+    $location.url('/users');
+    });
   };
 
 }]);

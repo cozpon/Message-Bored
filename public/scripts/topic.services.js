@@ -12,19 +12,19 @@ angular.module('myApp')
   });
 
 // read methods
-  this.getTopics = function() { return self.topics; };
+  this.getTopics = function() {
+    console.log(self.topics);
+    return self.topics; };
 
   // create method on frontend
   this.addTopic = function(topicName) {
     if (!topicName) { return '404'; }
-    console.log(topicName, "TOPIC NAME");
     var topic = {
       name: topicName.name
     };
     // create method on backend
     return $http.post(url, topic)
     .then(function(response) {
-      console.log(response, "RESPONSE TOPIC");
       self.topics.push(response.data);
       console.log(response.data);
       return response.data;

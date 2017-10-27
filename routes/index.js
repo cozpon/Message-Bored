@@ -20,9 +20,11 @@ router.post('/login', passport.authenticate('local'), function(req, res) {
 });
 
 router.get('/logout', (req, res) => {
+  console.log("Logged out, SERVER SIDE");
   req.logout();
-  console.log(req);
-  console.log("Logged out");
+  req.session.destroy(function() {
+    res.clearCookie('connect.sid');
+  });
 });
 
 router.post('/register', (req,res) => {

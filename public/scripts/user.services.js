@@ -14,7 +14,9 @@ angular.module('myApp')
   });
 
   // read methods
-  this.getUsers = function() { return self.users; };
+  this.getUsers = function() {
+    console.log(self.users);
+    return self.users; };
 
   // create method on frontend
   this.addUser = function(givenUser) {
@@ -41,13 +43,12 @@ angular.module('myApp')
   };
 
   this.logout = function() {
-    $http.get('/api/logout')
+    console.log('clicked');
+    return $http.get('/api/logout')
     .then(function(response) {
-      return response;
+      return response.data;
     });
   };
-
-
 
   this.updateUser = function(id, user) {
     var updateUrl = url + '/' + id;

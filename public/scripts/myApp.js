@@ -17,10 +17,6 @@ var app = angular.module('myApp')
     templateUrl: '/views/registration/login.html',
     controller: 'UsersController'
   })
-  .when('/logout', {
-    templateUrl: '/views/registration/logout.html',
-    controller: 'UsersController'
-  })
   .when('/register', {
     templateUrl: '/views/registration/register.html',
     controller: 'UsersController'
