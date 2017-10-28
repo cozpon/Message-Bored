@@ -1,12 +1,12 @@
 <!-- TOPIC SINGULAR -->
-<h1>{{ singleTopic.id }}</h1>
 
-<h1>Topic: {{ singleTopic.name }}</h1>
+<h1>{{ singleTopic.name }}</h1>
 
 
 <ul>
   <ul ng-repeat="messages in messageFromTopic">
-    {{ messages.body }}
+    <h2>{{ messages.id }}. {{ messages.body }}</h1>
+    Posted by: {{ messages.user.username }}
   </ul>     <!--  .getmessages needs to be get by topic -->
 </ul>
 

@@ -20,7 +20,6 @@ angular.module('myApp')
     var fullUrl = url + '/' + id + '/messages';
     return $http.get(fullUrl)
     .then(function(messages){
-      console.log("message", messages.data);
       return messages.data.messages;
     });
   };

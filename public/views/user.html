@@ -1,9 +1,12 @@
 <!-- USER SINGULAR -->
 
-<h1>ID: {{ singleUser.id }}</h1>
 
+<h1>Name: {{ singleUser.user.username }}</h1>
+<ul>
+  <ul ng-repeat="message in singleUser.messages">
+    <h1>Title: {{ message.body }}</h1>
+   <!--  <h1>Name: {{ data.user.username }}</h1> -->
+  </ul>     <!--  .getmessages needs to be get by topic -->
+</ul>
 
-
-<h1>Name: {{ singleUser.username }}</h1>
-
-
+{{ singleUser.messages[0].body }}

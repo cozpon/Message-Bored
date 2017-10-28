@@ -32,7 +32,6 @@ angular.module('myApp')
     });
   };
 
-
   this.login = function(data) {
     var user = { username: data.username, password: data.password };
     return $http.post('/api/login', user)
