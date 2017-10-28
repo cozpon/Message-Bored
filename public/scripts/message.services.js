@@ -1,18 +1,19 @@
 angular.module('myApp')
 .service('MessageService', ['$http', function($http) {
   var url = '/api/messages';
+  var urlGet = '/api/messages/latest';
   var self = this;
-  this.messages = [];
 
+  self.messages = [];
+  console.log(self.messages, "MESSAAGE");
   //initialization
-  $http.get(url)
+  $http.get(urlGet)
   .then(function(response) {
     self.messages = response.data;
   });
 
 // read methods
   this.getMessages = function() {
-    console.log(self.messages);
     return self.messages;
   };
 
@@ -20,7 +21,6 @@ angular.module('myApp')
   // create method on frontend
   this.addMessage = function(message, topicID) {
     if (!message) { return '404'; }
-    console.log(topicID, "TOPIC ID");
     var newMessage = {
       body: message.body,
       topic_id: topicID

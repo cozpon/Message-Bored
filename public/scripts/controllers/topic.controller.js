@@ -1,7 +1,7 @@
 // USER SINGULAR
 angular.module('myApp')
-.controller('topicController', ['$scope', '$routeParams', 'TopicService', 'MessageService',
-  function($scope, $routeParams, TopicService, MessageService) {
+.controller('topicController', ['$scope', '$routeParams', '$location', 'TopicService', 'MessageService',
+  function($scope, $routeParams, $location, TopicService, MessageService) {
     $scope.singleTopic = null;
     TopicService.singleTopic($routeParams.id)
     .then(function(data) {
@@ -9,11 +9,10 @@ angular.module('myApp')
     });
 
     $scope.addMessage = function(e) {
-      console.log($scope.singleTopic.id, "Scope Single");
       MessageService.addMessage($scope.newMessage, $scope.singleTopic.id)
       .then(function(newMessage){
         $scope.newMessage.body = '';
-        $location.url('/topic/:id');
+        $location.url('/messages/latest');
       });
     };
 }]);

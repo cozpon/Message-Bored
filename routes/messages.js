@@ -10,7 +10,6 @@ router.route('/')
   let body = req.body.body;
   let authorId = req.user.id;
   let topicId = req.body.topic_id;
-  console.log(topicId, "TOPIC ID");
   return Messages.create({
     body : body,
     topic_id: topicId,
