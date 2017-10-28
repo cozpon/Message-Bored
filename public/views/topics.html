@@ -1,7 +1,7 @@
 <h1> Create New Topic </h1>
 
 <ul ng-repeat="topics in getTopics()">
-      <a id="{{ topics.name }}" ng-href='/topics/{{ topics.id }}'>
+      <a id="{{ topics.name }}" ng-href='/topics/{{ topics.id }}/messages'>
       {{ topics.name }}</a><br>
       Posted by: {{ topics.user.username }}
 </ul>

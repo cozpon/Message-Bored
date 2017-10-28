@@ -5,8 +5,9 @@
 
 
 <ul>
-  <ul ng-repeat="message in MessageService.getMessages()">{{ message.body }}
-  </ul>
+  <ul ng-repeat="messages in messageFromTopic">
+    {{ messages.body }}
+  </ul>     <!--  .getmessages needs to be get by topic -->
 </ul>
 
 

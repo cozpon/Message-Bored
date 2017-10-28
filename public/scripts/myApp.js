@@ -33,7 +33,7 @@ var app = angular.module('myApp')
     templateUrl: '/views/topics.html',
     controller: 'TopicsController'
   })
-   .when('/topics/:id', {
+   .when('/topics/:id/messages', {
     templateUrl: '/views/topic.html',
     controller: 'topicController'
   })

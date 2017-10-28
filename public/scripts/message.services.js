@@ -2,21 +2,20 @@ angular.module('myApp')
 .service('MessageService', ['$http', function($http) {
   var url = '/api/messages';
   var urlGet = '/api/messages/latest';
+  var getByTopic = '/api/topic/:id';
   var self = this;
   self.messages = [];
-  console.log(self.messages, "UPPER SELF MESAGES");
+
   //initialization
   $http.get(urlGet)
   .then(function(response) {
     self.messages = response.data;
-    console.log(self.messages, "MIDDLE SELF MISEESEGES");
   });
 
 // read methods
   this.getMessages = function() {
     return self.messages;
   };
-
 
 
   // create method on frontend
@@ -29,13 +28,21 @@ angular.module('myApp')
     // create method on backend
     return $http.post(url, message)
     .then(function(response) {
-      console.log(response.data, "RES DATA");
       self.messages.push(response.data);
-      console.log(self.messages, "SELF MESSAGES");
       return response.data;
     });
   };
 
+// // get messageFromTopic
+//   this.messageFromTopic = function(id) {
+//     var fullUrl = url + '/' + id + '/messages';
+//     console.log(fullUrl, "FULL URL");
+//     return $http.get(fullUrl)
+//     .then(function(messages){
+//       console.log(messages, "MESSAGE TOPIC");
+//       return messages;
+//     });
+//   };
 
 
 }]);

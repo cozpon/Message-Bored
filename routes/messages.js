@@ -36,20 +36,20 @@ router.route('/latest')
   });
 });
 
-router.route('/topics/:id')
-.get((req, res) => {
-  let topicId = req.body.topic_id;
-  console.log(topicId, "TOPIC ID");
-  return Messages.findAll({
-    include:[{ model: Topics }],
-    where : { topic_id : topicId },
-    order : [ [ 'createdAt', 'ASC' ] ]
-  })
-  .then(result => {
-    console.log(result, "RESULT");
-    return res.json(result);
-  });
-});
+// router.route('/topic_id/:id')
+// .get((req, res) => {
+//   let topicId = req.body.topic_id;
+//   console.log(topicId, "TOPIC ID");
+//   return Messages.findAll({
+//     include:[{ model: Topics }],
+//     where : { topic_id : topicId },
+//     order : [ [ 'createdAt', 'ASC' ] ]
+//   })
+//   .then(result => {
+//     console.log(result, "RESULT");
+//     return res.json(result);
+//   });
+// });
 
 module.exports = router;
 

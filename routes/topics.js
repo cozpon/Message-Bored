@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models');
+
 const Topics = db.topics;
 const Users = db.users;
 const Messages = db.messages;
@@ -47,6 +48,49 @@ router.route('/:id')
     return res.json(topic);
   });
 });
+
+router.route('/:id/messages')
+.get((req, res) => {
+  console.log('BAM');
+  let topicId = req.params.id;
+  return Messages.findAll({
+    include:[{ model: Users }],
+    where: { topic_id: topicId },
+    order: [['createdAt', 'ASC']],
+    })
+    .then((result) => {
+    Topics.findOne({
+      where: { id: topicId }
+    })
+    .then(topic => {
+      let topicData = {
+        topic: topic,
+        messages: result
+      };
+      return res.json(topicData);
+    });
+  });
+});
+
+
+// router.route('/topic_id/:id')
+// .get((req, res) => {
+//   let topicId = req.body.topic_id;
+//   console.log(topicId, "TOPIC ID");
+//   return Messages.findAll({
+//     include:[{ model: Topics }],
+//     where : { topic_id : topicId },
+//     order : [ [ 'createdAt', 'ASC' ] ]
+//   })
+//   .then(result => {
+//     console.log(result, "RESULT");
+//     return res.json(result);
+//   });
+// });
+
+
+
+
 
 module.exports = router;
 

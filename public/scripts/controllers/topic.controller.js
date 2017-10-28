@@ -2,16 +2,21 @@
 angular.module('myApp')
 .controller('topicController', ['$scope', '$routeParams', '$location', 'TopicService', 'MessageService',
   function($scope, $routeParams, $location, TopicService, MessageService) {
-    $scope.singleTopic = null;
+    // $scope.singleTopic = null;
+
     $scope.MessageService = MessageService;
-
-    console.log(typeof $routeParams.id, "SOIHESF");
-
 
     if($routeParams.id){
       TopicService.singleTopic($routeParams.id)
       .then(function(data) {
         $scope.singleTopic = data;
+      });
+    }
+
+    if($routeParams.id){
+      TopicService.messageFromTopic($routeParams.id)
+      .then(function(data) {
+        $scope.messageFromTopic = data;
       });
     }
 
@@ -22,6 +27,9 @@ angular.module('myApp')
         $location.url('/messages/latest');
       });
     };
+
+
+
 }]);
 
 
