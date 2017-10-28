@@ -4,6 +4,7 @@ const router = express.Router();
 const db = require('../models');
 const Topics = db.topics;
 const Users = db.users;
+const Messages = db.messages;
 
 router.route('/')
 .get((req, res) => {

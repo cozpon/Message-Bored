@@ -22,6 +22,7 @@ angular.module('myApp')
     var fullUrl = url + '/' + id;
     return $http.get(fullUrl)
     .then(function(res){
+      console.log(res.data,"RES DATA");
       return res.data;
     });
   };
