@@ -19,7 +19,7 @@ angular.module('myApp')
 
   // create method on frontend
   this.addUser = function(givenUser) {
-    if (!givenUser) { return; }
+    if (!givenUser) { return '404'; }
     var user = {
       username: givenUser.username,
       password: givenUser.password

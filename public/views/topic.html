@@ -1,14 +1,17 @@
 <!-- TOPIC SINGULAR -->
-<h1>TOPIC</h1>
-<h1>ID: {{ singleTopic.id }}</h1>
+<h1>{{ singleTopic.id }}</h1>
 
-<h1>Name: {{ singleTopic.name }}</h1>
+<h1>Topic: {{ singleTopic.name }}</h1>
 
-CREATE NEW POST/COMMENT
 
-{{ topics.message.body }}
+<ul>
+  <ul ng-repeat="message in MessageService.getMessages()">{{ message.body }}
+  </ul>
+</ul>
+
+
 
 <form>
   <textarea type="text" ng-model="newMessage.body" placeholder="Create Comment" cols="30" rows="10"></textarea><br>
-  <button ng-click="addMessage()">Create Message</button>
+  <button ng-click="addMessage()">Add Comment</button>
 </form>

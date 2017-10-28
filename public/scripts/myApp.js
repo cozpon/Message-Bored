@@ -39,7 +39,7 @@ var app = angular.module('myApp')
   })
   .when('/messages/latest', {
     templateUrl: '/views/latest.html',
-    controller: 'MessagesController'
+    controller: 'topicController'
   })
 
   .otherwise({ //this is the 404 // error page

@@ -28,23 +28,25 @@ router.route('/latest')
 .get((req, res) => {
   return Messages.findAll({
     include:[{ model: Topics }],
-    limit: 10,
-    order: [ [ 'id', 'DESC' ] ]
+    order : [ [ 'createdAt', 'ASC' ] ],
+    limit: 10
   })
   .then(latest => {
     return res.json(latest);
   });
 });
 
-router.route('/by-topic/:topic_id')
+router.route('/topics/:id')
 .get((req, res) => {
   let topicId = req.body.topic_id;
+  console.log(topicId, "TOPIC ID");
   return Messages.findAll({
     include:[{ model: Topics }],
     where : { topic_id : topicId },
     order : [ [ 'createdAt', 'ASC' ] ]
   })
   .then(result => {
+    console.log(result, "RESULT");
     return res.json(result);
   });
 });

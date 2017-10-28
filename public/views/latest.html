@@ -1,1 +1,8 @@
 <h1>TOP TEN LATEST GREATEST HITS</h1>
+
+<ul>
+  <ul ng-repeat="message in MessageService.getMessages()">{{ message.body }}
+  </ul>
+</ul>
+
+
