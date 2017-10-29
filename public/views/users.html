@@ -1,13 +1,14 @@
 <!-- USERS PLURAL -->
-  <button ng-click="logout()">Logout</button>
+<button ng-click="logout()">Logout</button>
+
 <div>
   <input type="text" ng-model="userSearch" placeholder="Search">
 </div>
 
-  <ul>
-    <ul ng-repeat="user in getUsers() | filter:userSearch | orderBy:'id'">
-      <a id="{{ user.username }}" ng-href='/users/{{ user.id }}'>
-      {{ user.username }}</a>
-    </ul>
+<ul>
+  Users:
+  <ul ng-repeat="user in getUsers() | filter:userSearch | orderBy:'id'">
+    <a id="{{ user.username }}" ng-href='/users/{{ user.id }}'>{{ user.username }}</a>
   </ul>
+</ul>
 

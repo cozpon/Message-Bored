@@ -4,6 +4,7 @@ const router = express.Router();
 const db = require('../models');
 const Users = db.users;
 const Messages = db.messages;
+const Topics = db.topics;
 
 router.route('/')
   .get((req, res) => {
@@ -13,37 +14,31 @@ router.route('/')
     });
   });
 
-
-
 router.route('/:id')
-  .get((req, res) => {
-      let userId = req.params.id;
-      return Users.findById(userId)
-  .then((user) => {
-    console.log(user, "USER");
-    Messages.findAll({
-      include: [{ model: Users }],
-      where: {author_id: userId}
+  .get((req,res) => {
+    let id = req.params.id;
+    return Messages.findAll({
+      include : [{model: Topics}],
+      where : {author_id : id}
     })
-    .then(message => {
-      console.log(message, "message");
-      let result = {
-        user: user,
-        messages: message
-      };
-      return res.json(result);
+    .then(messages => {
+      Topics.findAll({
+      include : [{model: Users}],
+      where : { created_by : id},
+      order : [["createdAt", "DESC"]]
+      })
+      .then(topics => {
+        Users.findById(id)
+        .then(users => {
+        let result = {
+          user: users,
+          messages: messages,
+          topic : topics
+          };
+          return res.json(result);
+        });
+      });
     });
   });
-  //   return Topics.findAll({
-  //     include:[{ model: Users }],
-  //     where: { created_by: userId },
-  //   })
-  //   .then((topic) => {
-  //     Users.findById(userId)
-  //   .then(user => {
-  //     console.log(user);
-  //   return res.json(user);
-  //   });
-  // });
-});
+
 module.exports = router;

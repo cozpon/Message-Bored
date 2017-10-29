@@ -1,11 +1,16 @@
 <!-- USER SINGULAR -->
-
-
-<h1>Name: {{ singleUser.user.username }}</h1>
+<h1>Username: {{ singleUser.user.username }}</h1>
 <ul>
+
+   Topics:
+  <ul ng-repeat="message in singleUser.topic">
+    {{ message.name }}
+  </ul>
+
+   Posts:
   <ul ng-repeat="message in singleUser.messages">
-    Title: {{ message.body }}
-   <!--  <h1>Name: {{ data.user.username }}</h1> -->
-  </ul>     <!--  .getmessages needs to be get by topic -->
+    {{ message.body }}
+  </ul>
+
 </ul>
 
