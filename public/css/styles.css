@@ -1,0 +1,10 @@
+body {
+  font-family: -webkit-pictograph;
+  background-color: seashell; }
+
+.ng-controller {
+  display: flex;
+  flex: 1;
+  margin-left: 24px;
+  padding: 12px;
+  border: solid 1px #e7e7e7; }

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="/css/styles.css">
   <title>Document</title>
     <base href="/">
 </head>
@@ -14,10 +15,7 @@
     <a ng-href="/login" ng-if="!login()">Login</a>
     <a ng-href="/register" ng-if="!login()">Register</a>
     <a ng-href="/logout" ng-if="login()">Logout</a>
-
   </div>
-
-
 
 
   <ng-view> loading... </ng-view>
