@@ -36,14 +36,18 @@ angular.module('myApp')
     var user = { username: data.username, password: data.password };
     return $http.post('/api/login', user)
     .then(function(user) {
+      localStorage.setItem('loggedin', true);
+      localStorage.setItem('user', user.data.id);
       return user.data;
     });
   };
 
   this.logout = function() {
-    return $http.get('/api/logout')
+    return $http.get('/logout')
     .then(function(response) {
-      return response.data;
+      localStorage.setItem('loggedin', false);
+      localStorage.setItem('user', 0);
+      return response;
     });
   };
 

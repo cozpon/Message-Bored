@@ -15,9 +15,6 @@ router.route('/')
 
 
 
-
-
-
 router.route('/:id')
   .get((req, res) => {
       let userId = req.params.id;

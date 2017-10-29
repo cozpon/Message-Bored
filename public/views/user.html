@@ -4,9 +4,8 @@
 <h1>Name: {{ singleUser.user.username }}</h1>
 <ul>
   <ul ng-repeat="message in singleUser.messages">
-    <h1>Title: {{ message.body }}</h1>
+    Title: {{ message.body }}
    <!--  <h1>Name: {{ data.user.username }}</h1> -->
   </ul>     <!--  .getmessages needs to be get by topic -->
 </ul>
 
-{{ singleUser.messages[0].body }}
